@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Rutika Kolhapure | AI/ML Engineer & Full Stack Developer</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+      overflow-x: hidden;
+    }
+    
+    /* Premium gradient text */
+    .gradient-text {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    /* Modern card design */
+    .premium-card {
+      background: white;
+      border-radius: 1.5rem;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0, 0, 0, 0.03);
+      border: 1px solid rgba(0, 0, 0, 0.04);
+    }
+    
+    .premium-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06), 0 5px 12px rgba(0, 0, 0, 0.04);
+    }
+    
+    /* Skill badges */
+    .skill-badge {
+      background: linear-gradient(135deg, #f3f4f6 0%, #ffffff 100%);
+      border: 1px solid #e5e7eb;
+      padding: 0.5rem 1.25rem;
+      border-radius: 2rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      color: #4b5563;
+    }
+    
+    .skill-badge:hover {
+      background: linear-gradient(135deg, #667eea10 0%, #764ba210 100%);
+      border-color: #667eea;
+      color: #667eea;
+      transform: translateY(-2px);
+    }
+    
+    /* Navbar */
+    .navbar-premium {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    }
+    
+    /* Button styles */
+    .btn-primary {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px -5px rgba(102, 126, 234, 0.3);
+    }
+    
+    .btn-outline {
+      border: 2px solid #e5e7eb;
+      background: transparent;
+      transition: all 0.3s ease;
+      color: #4b5563;
+    }
+    
+    .btn-outline:hover {
+      border-color: #667eea;
+      background: rgba(102, 126, 234, 0.05);
+      transform: translateY(-2px);
+      color: #667eea;
+    }
+    
+    /* Scroll progress */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, #667eea, #764ba2);
+      z-index: 1000;
+      transition: width 0.1s ease-out;
+    }
+    
+    /* Typing cursor */
+    .typing-cursor {
+      display: inline-block;
+      width: 3px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      margin-left: 4px;
+      animation: blink 1s infinite;
+    }
+    
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    
+    /* Smooth scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Section animations */
+    section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      border-radius: 5px;
+    }
+    
+    /* Hero section right side styling */
+    .hero-stats-card {
+      background: white;
+      border-radius: 2rem;
+      padding: 2rem;
+      box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(102, 126, 234, 0.1);
+    }
+    
+    .stat-item {
+      border-bottom: 1px solid #f0f0f0;
+      padding: 1rem 0;
+      transition: all 0.3s ease;
+    }
+    
+    .stat-item:last-child {
+      border-bottom: none;
+    }
+    
+    .stat-item:hover {
+      transform: translateX(5px);
+    }
+    
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    /* Code window decoration */
+    .code-window {
+      background: #1e1e2e;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.15);
+    }
+    
+    .code-header {
+      background: #2d2d3d;
+      padding: 0.75rem 1rem;
+      display: flex;
+      gap: 0.5rem;
+    }
+    
+    .code-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    
+    .code-dot-red { background: #ff5f56; }
+    .code-dot-yellow { background: #ffbd2e; }
+    .code-dot-green { background: #27c93f; }
+    
+    .code-content {
+      padding: 1.5rem;
+      font-family: 'Monaco', 'Courier New', monospace;
+      font-size: 0.875rem;
+      color: #e2e8f0;
+    }
+    
+    .code-keyword { color: #ff79c6; }
+    .code-function { color: #50fa7b; }
+    .code-string { color: #f1fa8c; }
+    .code-comment { color: #6272a4; }
+  </style>
+</head>
+<body>
+
+<!-- Scroll Progress Bar -->
+<div class="scroll-progress" id="progressBar"></div>
+
+<!-- Navbar -->
+<nav class="fixed top-0 left-0 w-full z-50 navbar-premium transition-all duration-300" id="navbar">
+  <div class="max-w-7xl mx-auto px-6 md:px-12 py-4">
+    <div class="flex justify-between items-center">
+      <a href="#home" class="text-2xl font-bold gradient-text" style="font-family: 'Space Grotesk', monospace;">RK</a>
+      <div class="hidden md:flex gap-8 text-sm font-medium">
+        <a href="#about" class="text-gray-700 hover:text-purple-600 transition-colors nav-link">About</a>
+        <a href="#skills" class="text-gray-700 hover:text-purple-600 transition-colors nav-link">Skills</a>
+        <a href="#projects" class="text-gray-700 hover:text-purple-600 transition-colors nav-link">Projects</a>
+        <a href="#experience" class="text-gray-700 hover:text-purple-600 transition-colors nav-link">Experience</a>
+        <a href="#achievements" class="text-gray-700 hover:text-purple-600 transition-colors nav-link">Achievements</a>
+        <a href="#contact" class="text-gray-700 hover:text-purple-600 transition-colors nav-link">Contact</a>
+      </div>
+      <button onclick="downloadResume()" class="hidden md:block px-5 py-2 rounded-full btn-primary text-white text-sm font-semibold shadow-sm">
+        Resume ↓
+      </button>
+      <button id="mobileMenuBtn" class="md:hidden text-gray-700 text-2xl">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div id="mobileMenu" class="fixed inset-0 bg-white z-40 hidden flex-col items-center justify-center gap-8 text-gray-800">
+  <button id="closeMenuBtn" class="absolute top-6 right-6 text-3xl text-gray-600">&times;</button>
+  <a href="#about" class="text-2xl hover:text-purple-600 transition">About</a>
+  <a href="#skills" class="text-2xl hover:text-purple-600 transition">Skills</a>
+  <a href="#projects" class="text-2xl hover:text-purple-600 transition">Projects</a>
+  <a href="#experience" class="text-2xl hover:text-purple-600 transition">Experience</a>
+  <a href="#achievements" class="text-2xl hover:text-purple-600 transition">Achievements</a>
+  <a href="#contact" class="text-2xl hover:text-purple-600 transition">Contact</a>
+  <button onclick="downloadResume()" class="px-6 py-3 rounded-full btn-primary text-white font-semibold">Download Resume</button>
+</div>
+
+<main>
+  <!-- Hero Section -->
+  <section id="home" class="min-h-screen flex items-center py-20">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Left side content -->
+        <div>
+          <div class="inline-block mb-6">
+            <span class="px-4 py-2 rounded-full bg-gradient-to-r from-purple-100 to-indigo-100 text-purple-700 text-sm font-semibold border border-purple-200">
+              ✨ AI/ML Engineer • Backend Developer
+            </span>
+          </div>
+          <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-4">
+            <span class="gradient-text">Rutika Kolhapure</span>
+          </h1>
+          <p class="text-xl text-gray-600 mb-3">Computer Science Engineering Student</p>
+          <div class="text-xl text-gray-500 mb-6">
+            <span>Building the future with </span>
+            <span class="text-purple-600 font-semibold" id="typing-text"></span>
+            <span class="typing-cursor">|</span>
+          </div>
+          <p class="text-gray-600 text-lg leading-relaxed mb-8">
+            CS student with strong foundations in AI/ML, NLP, Generative AI and backend development. 
+            Building production-ready systems and solving real-world problems with innovative solutions.
+          </p>
+          <div class="flex gap-4 flex-wrap mb-8">
+            <button onclick="downloadResume()" class="px-8 py-3 rounded-full btn-primary text-white font-semibold shadow-lg">
+              Download Resume 📄
+            </button>
+            <a href="#projects" class="px-8 py-3 rounded-full btn-outline font-semibold">
+              View Projects →
+            </a>
+          </div>
+          <div class="flex gap-6">
+            <a href="https://github.com/Rutikakolhapure" target="_blank" class="text-gray-500 hover:text-purple-600 transition text-2xl">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/rutika-kolhapure/" target="_blank" class="text-gray-500 hover:text-purple-600 transition text-2xl">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://leetcode.com/u/Rutikakolhapure/" target="_blank" class="text-gray-500 hover:text-purple-600 transition text-2xl">
+              <i class="fab fa-code"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right side - Professional Stats Card -->
+        <div>
+          <div class="hero-stats-card">
+            <div class="text-center mb-6">
+              <div class="text-5xl mb-2">💻</div>
+              <h3 class="text-2xl font-bold text-gray-800">Technical Profile</h3>
+              <p class="text-gray-500 text-sm">Key metrics & achievements</p>
+            </div>
+            
+            <div class="stat-item">
+              <div class="flex justify-between items-center">
+                <span class="text-gray-600 font-medium">🎓 Academic Performance</span>
+                <span class="stat-number">9.1 CGPA</span>
+              </div>
+              <div class="w-full bg-gray-100 rounded-full h-2 mt-2">
+                <div class="bg-gradient-to-r from-purple-500 to-indigo-500 h-2 rounded-full" style="width: 91%"></div>
+              </div>
+            </div>
+            
+            <div class="stat-item">
+              <div class="flex justify-between items-center">
+                <span class="text-gray-600 font-medium">💪 Problem Solving</span>
+                <span class="stat-number">140+</span>
+              </div>
+              <div class="text-sm text-gray-500 mt-1">LeetCode problems solved</div>
+            </div>
+            
+            <div class="stat-item">
+              <div class="flex justify-between items-center">
+                <span class="text-gray-600 font-medium">🏆 Hackathon</span>
+                <span class="stat-number">Top 30</span>
+              </div>
+              <div class="text-sm text-gray-500 mt-1">Out of 1626 teams</div>
+            </div>
+            
+            <div class="stat-item">
+              <div class="flex justify-between items-center">
+                <span class="text-gray-600 font-medium">📊 Academic Excellence</span>
+                <span class="stat-number">98.08%</span>
+              </div>
+              <div class="text-sm text-gray-500 mt-1">Class X Board Results</div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-gray-100">
+              <div class="flex justify-around">
+                <div class="text-center">
+                  <i class="fab fa-python text-2xl text-purple-600"></i>
+                  <p class="text-xs text-gray-500 mt-1">Python</p>
+                </div>
+                <div class="text-center">
+                  <i class="fab fa-js text-2xl text-yellow-500"></i>
+                  <p class="text-xs text-gray-500 mt-1">JavaScript</p>
+                </div>
+                <div class="text-center">
+                  <i class="fas fa-database text-2xl text-blue-500"></i>
+                  <p class="text-xs text-gray-500 mt-1">SQL</p>
+                </div>
+                <div class="text-center">
+                  <i class="fab fa-java text-2xl text-red-500"></i>
+                  <p class="text-xs text-gray-500 mt-1">Java</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20 bg-gradient-to-b from-white to-gray-50 scroll-mt-24">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">About Me</h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-purple-500 to-indigo-500 mx-auto rounded-full"></div>
+      </div>
+      <div class="grid md:grid-cols-2 gap-12">
+        <div class="premium-card p-8">
+          <p class="text-gray-700 text-lg leading-relaxed mb-6">
+            Hi, I'm Rutika — a passionate Computer Science Engineering student (2027) with a deep love for AI, backend systems, and building impactful solutions. 
+            My journey blends Backend development with cutting-edge generative AI.
+          </p>
+          <p class="text-gray-700 text-lg leading-relaxed">
+            I've built and deployed real-world ML models, robust REST APIs, and participated in competitive hackathons, ranking Top 30 out of 1626 teams. 
+            I'm always eager to learn and solve complex problems with clean, scalable code.
+          </p>
+        </div>
+        <div class="premium-card p-8">
+          <h3 class="text-2xl font-bold mb-6 text-gray-800">Core Competencies</h3>
+          <div class="space-y-3">
+            <div class="flex items-center gap-3 p-3 rounded-lg hover:bg-purple-50 transition">
+              <i class="fas fa-brain text-purple-600 text-xl"></i>
+              <span class="text-gray-700 font-medium">AI/ML Model Development</span>
+            </div>
+            <div class="flex items-center gap-3 p-3 rounded-lg hover:bg-purple-50 transition">
+              <i class="fas fa-code text-purple-600 text-xl"></i>
+              <span class="text-gray-700 font-medium">Backend Development</span>
+            </div>
+            <div class="flex items-center gap-3 p-3 rounded-lg hover:bg-purple-50 transition">
+              <i class="fas fa-database text-purple-600 text-xl"></i>
+              <span class="text-gray-700 font-medium">REST API Design & Implementation</span>
+            </div>
+            <div class="flex items-center gap-3 p-3 rounded-lg hover:bg-purple-50 transition">
+              <i class="fas fa-robot text-purple-600 text-xl"></i>
+              <span class="text-gray-700 font-medium">Generative AI & LLM Integration</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-20 scroll-mt-24">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">Technical Skills</h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-purple-500 to-indigo-500 mx-auto rounded-full mb-4"></div>
+        <p class="text-gray-600 text-lg">Comprehensive skill set spanning AI/ML, Backend-Development, and Data Science</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="skills-container"></div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-20 bg-gradient-to-b from-gray-50 to-white scroll-mt-24">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">Featured Projects</h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-purple-500 to-indigo-500 mx-auto rounded-full mb-4"></div>
+        <p class="text-gray-600 text-lg">Real-world solutions with cutting-edge technologies</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="projects-container"></div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="py-20 scroll-mt-24">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">Experience</h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-purple-500 to-indigo-500 mx-auto rounded-full mb-4"></div>
+      </div>
+      <div class="max-w-4xl mx-auto">
+        <div class="premium-card p-8">
+          <div class="flex flex-wrap justify-between items-start mb-6">
+            <div>
+              <h3 class="text-2xl font-bold text-gray-800">AI/ML Intern</h3>
+              <p class="text-purple-600 mt-1 font-semibold">Interpe · Remote</p>
+            </div>
+            <span class="text-sm text-gray-500 font-mono">Feb 2026 – Mar 2026</span>
+          </div>
+          <div class="space-y-4">
+            <div class="flex items-start gap-3">
+              <div class="w-2 h-2 bg-purple-600 rounded-full mt-2"></div>
+              <p class="text-gray-700">Built Controllable RAG-based Q&A system using LLMs & LangGraph multi-step reasoning</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-2 h-2 bg-purple-600 rounded-full mt-2"></div>
+              <p class="text-gray-700">Implemented retrieval + validation pipeline with ChromaDB / Pinecone for vector search</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-2 h-2 bg-purple-600 rounded-full mt-2"></div>
+              <p class="text-gray-700">Reduced hallucination via advanced prompt engineering techniques</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-2 h-2 bg-purple-600 rounded-full mt-2"></div>
+              <p class="text-gray-700">Developed FastAPI + Streamlit deployment (Docker-ready)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Achievements Section -->
+  <section id="achievements" class="py-20 bg-gradient-to-b from-white to-gray-50 scroll-mt-24">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">Education & Achievements</h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-purple-500 to-indigo-500 mx-auto rounded-full mb-4"></div>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="premium-card p-8">
+          <h3 class="text-2xl font-bold mb-6 text-gray-800">
+            <i class="fas fa-graduation-cap text-purple-600 mr-3"></i>Education
+          </h3>
+          <div class="space-y-6">
+            <div>
+              <h4 class="text-xl font-semibold text-gray-800">B.E. Computer Science Engineering</h4>
+              <p class="text-purple-600">2023 – 2027</p>
+              <p class="text-gray-600 mt-1">CGPA: 9.1/10</p>
+            </div>
+            <div>
+              <h4 class="text-xl font-semibold text-gray-800">Class XII</h4>
+              <p class="text-gray-600">95.5%</p>
+            </div>
+            <div>
+              <h4 class="text-xl font-semibold text-gray-800">Class X</h4>
+              <p class="text-gray-600">98.08%</p>
+            </div>
+          </div>
+        </div>
+        <div class="premium-card p-8">
+          <h3 class="text-2xl font-bold mb-6 text-gray-800">
+            <i class="fas fa-trophy text-yellow-500 mr-3"></i>Achievements
+          </h3>
+          <div class="space-y-4">
+            <div class="flex items-start gap-3">
+              <i class="fas fa-medal text-purple-600 mt-1"></i>
+              <div>
+                <p class="font-semibold text-gray-800">Hackathon Finalist</p>
+                <p class="text-gray-600 text-sm">Top 30 out of 1626 teams at ADCET National Hackathon 2025</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <i class="fas fa-code text-purple-600 mt-1"></i>
+              <div>
+                <p class="font-semibold text-gray-800">LeetCode</p>
+                <p class="text-gray-600 text-sm">Solved 140+ DSA problems with consistent practice</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <i class="fas fa-star text-purple-600 mt-1"></i>
+              <div>
+                <p class="font-semibold text-gray-800">Academic Excellence</p>
+                <p class="text-gray-600 text-sm">Maintained 9.1 CGPA throughout engineering</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 scroll-mt-24">
+    <div class="max-w-4xl mx-auto px-6 md:px-12">
+      <div class="premium-card p-8 md:p-12 text-center">
+        <h2 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">Get In Touch</h2>
+        <div class="w-20 h-1 bg-gradient-to-r from-purple-500 to-indigo-500 mx-auto rounded-full mb-6"></div>
+        <p class="text-gray-600 text-lg mb-8">Let's connect and discuss opportunities</p>
+        <div class="flex justify-center gap-8 text-3xl mb-8">
+          <a href="https://github.com/Rutikakolhapure" target="_blank" class="text-gray-500 hover:text-purple-600 transition"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/rutika-kolhapure/" target="_blank" class="text-gray-500 hover:text-purple-600 transition"><i class="fab fa-linkedin"></i></a>
+          <a href="https://leetcode.com/u/Rutikakolhapure/" target="_blank" class="text-gray-500 hover:text-purple-600 transition"><i class="fab fa-code"></i></a>
+          <a href="mailto:ruchirakolhapure@example.com" class="text-gray-500 hover:text-purple-600 transition"><i class="fas fa-envelope"></i></a>
+        </div>
+        <button onclick="downloadResume()" class="px-8 py-3 rounded-full btn-primary text-white font-semibold">
+          Download Resume 📄
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 text-center text-gray-500 text-sm border-t border-gray-200">
+    <p>© 2026 Rutika Kolhapure — AI/ML Engineer & Backend Developer</p>
+    <div class="flex justify-center gap-4 mt-2">
+      <a href="#home" class="hover:text-purple-600 transition">Back to top ↑</a>
+    </div>
+  </footer>
+</main>
+
+<script>
+  // Skills Data
+  const skillsData = {
+    "Programming & Frameworks": ["Python", "SQL", "Java", "JavaScript", "Django", "DRF"],
+    "AI/ML & Data Science": ["Scikit-learn","NLP","ML", "Cloud Computing" ,"spaCy", "Gensim", "Generative AI", "Prompt Engineering"],
+    "Tools & Core": ["Git", "GitHub", "VS Code","AWS","Data Structures", "DBMS", "OOPS","CN","OS"]
+  };
+
+  // Projects Data
+  const projectsData = [
+    {
+      title: "Agro-Optics",
+      description: "AI-based integrated pedology & phytopathological diagnostic system for precision agriculture. Built CNN models for soil analysis & plant disease detection with 86% accuracy.",
+      tech: ["Python", "TensorFlow", "Django", "React", "SQL"],
+      accuracy: "86% Accuracy",
+      features: ["Soil Analysis CNN", "Disease Detection", "Crop Recommendation", "Weather API"],
+      link: "https://github.com/Rutikakolhapure/agro-optics",
+      badge: "🏆 Hackathon Finalist"
+    },
+    {
+      title: "E-Commerce REST API",
+      description: "Scalable backend solution for e-commerce with JWT authentication, product cart, order management, and advanced filtering & pagination.",
+      tech: ["Django", "DRF", "JWT", "MySQL"],
+      features: ["JWT Auth", "Product Search", "Cart/Order System", "Pagination"],
+      link: "https://github.com/Rutikakolhapure/ecommerce-api",
+      badge: "⚡ Production Ready"
+    }
+  ];
+
+  // Render Skills
+  function renderSkills() {
+    const container = document.getElementById('skills-container');
+    if (!container) return;
+    
+    let html = '';
+    for (const [category, skills] of Object.entries(skillsData)) {
+      html += `
+        <div class="premium-card p-6">
+          <h3 class="text-xl font-semibold mb-4 text-gray-800">${category}</h3>
+          <div class="flex flex-wrap gap-2">
+            ${skills.map(skill => `<span class="skill-badge">${skill}</span>`).join('')}
+          </div>
+        </div>
+      `;
+    }
+    container.innerHTML = html;
+  }
+
+  // Render Projects
+  function renderProjects() {
+    const container = document.getElementById('projects-container');
+    if (!container) return;
+    
+    let html = '';
+    projectsData.forEach(project => {
+      html += `
+        <div class="premium-card p-6">
+          <div class="inline-block mb-3">
+            <span class="text-xs px-3 py-1 rounded-full bg-gradient-to-r from-purple-100 to-indigo-100 text-purple-700 font-semibold">${project.badge}</span>
+          </div>
+          <h3 class="text-2xl font-bold mb-3 text-gray-800">${project.title}</h3>
+          <p class="text-gray-600 text-sm mb-4 leading-relaxed">${project.description}</p>
+          <p class="text-sm text-purple-600 font-semibold mb-3">🎯 ${project.accuracy}</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            ${project.tech.map(t => `<span class="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-lg">${t}</span>`).join('')}
+          </div>
+          <div class="space-y-1 mb-4">
+            ${project.features.map(f => `<div class="flex items-center gap-2 text-sm text-gray-600"><i class="fas fa-check-circle text-purple-500 text-xs"></i>${f}</div>`).join('')}
+          </div>
+          <a href="${project.link}" target="_blank" class="text-purple-600 text-sm font-semibold inline-flex items-center gap-2 hover:gap-3 transition-all">
+            GitHub Repository <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      `;
+    });
+    container.innerHTML = html;
+  }
+
+  // Typing Animation
+  function setupTypingAnimation() {
+    const texts = ["CS Student", "AI/ML Engineer", "Full Stack Developer", "Problem Solver"];
+    let index = 0;
+    let subIndex = 0;
+    let deleting = false;
+    const typingElement = document.getElementById('typing-text');
+    
+    function type() {
+      if (!typingElement) return;
+      
+      if (subIndex === texts[index].length + 1 && !deleting) {
+        deleting = true;
+        setTimeout(type, 2000);
+        return;
+      }
+      
+      if (deleting && subIndex === 0) {
+        deleting = false;
+        index = (index + 1) % texts.length;
+        setTimeout(type, 500);
+        return;
+      }
+      
+      if (deleting) {
+        subIndex--;
+      } else {
+        subIndex++;
+      }
+      
+      typingElement.textContent = texts[index].substring(0, subIndex);
+      setTimeout(type, deleting ? 50 : 100);
+    }
+    
+    type();
+  }
+
+  // Scroll Progress
+  function setupScrollProgress() {
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = (winScroll / height) * 100;
+      const progressBar = document.getElementById('progressBar');
+      if (progressBar) {
+        progressBar.style.width = scrolled + '%';
+      }
+    });
+  }
+
+  // Section Observer
+  function setupSectionObserver() {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+    
+    document.querySelectorAll('section').forEach(section => {
+      observer.observe(section);
+    });
+  }
+
+  // Mobile Menu
+  function setupMobileMenu() {
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const closeMenuBtn = document.getElementById('closeMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      });
+    }
+    
+    if (closeMenuBtn) {
+      closeMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        document.body.style.overflow = '';
+      });
+    }
+    
+    document.querySelectorAll('#mobileMenu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+
+  
+// Download Resume
+window.downloadResume = function() {
+    const link = document.createElement('a');
+    link.href = 'D:/Resume Projects/portfolio/Rutika_Resume.pdf';
+    link.download = 'Rutika_Kolhapure_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+};
+  // Navbar Active State
+  function setupNavbarActive() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        const sectionHeight = section.clientHeight;
+        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+          current = section.getAttribute('id');
+        }
+      });
+      
+      navLinks.forEach(link => {
+        link.classList.remove('text-purple-600');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('text-purple-600');
+        }
+      });
+    });
+  }
+
+  // Initialize
+  renderSkills();
+  renderProjects();
+  setupTypingAnimation();
+  setupScrollProgress();
+  setupSectionObserver();
+  setupMobileMenu();
+  setupNavbarActive();
+</script>
+
+</body>
+</html>
